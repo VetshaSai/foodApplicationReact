@@ -1,0 +1,59 @@
+.headerSection{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.nav-items > ul{
+    display: flex;
+}
+
+.nav-items>ul>li {
+    list-style-type: none;
+    padding: 20px;
+    margin: 30px;
+}
+
+.logo{
+    width: 170px;
+}
+
+.res-card{
+    width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    line-height: 10px;
+}
+
+.res-card:hover{
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.res-img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.res-content{
+    margin: 10px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: system-ui;
+    gap:10px;
+    box-sizing: border-box;
+}
+.cuisines{
+    /* white-space: nowrap; Prevent text from wrapping */
+    /* overflow: hidden; Hide overflow content */
+    /* text-overflow: ellipsis; Show ellipsis when text overflows */
+    line-height: normal;
+    /* line-break: unset; */
+    color: #8b7b7b;
+    font-size: 12px;
+} 
