@@ -6,6 +6,8 @@ import ShimmerCards from "./Shimmer";
 const Body = () =>{
 
     const [listOfRestaurents, setlistOfRestaurents] = useState([]);
+    const [seacrhText,setseacrhText] = useState("");
+    const [filteredrestaurants,setfilteredrestaurants] = useState([]);
     useEffect(
         ()=>{
             fetchData()
@@ -16,8 +18,8 @@ const Body = () =>{
         
         const json = await data.json();
 
-        console.log(json);
         setlistOfRestaurents(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setfilteredrestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
     //Conditional Rendering
@@ -26,10 +28,21 @@ const Body = () =>{
     // }
     return listOfRestaurents.length === 0 ?  <ShimmerCards/> : (
     <div className="body">
-        {/* <div className="search">
-            <input placeholder="seacrch here.."></input>
-            <button className="searchButton">Seacrh</button>
-        </div> */}
+        <div className="search">
+            <input  type="text" placeholder="seacrch here.." value={seacrhText} onChange={
+                (e) =>{
+                   setseacrhText(e.target.value);
+                }
+            }></input>
+            <button className="searchButton" onClick={
+                () =>{
+                    SearchData = listOfRestaurents.filter(
+                        (res)=> res.info.name.toLowerCase().includes(seacrhText.toLowerCase()) 
+                    );
+                    setfilteredrestaurants(SearchData);
+                }
+                }>Seacrh</button>
+        </div>
         <div className="filter">
             <button className="filter-btn" onClick={ 
                 () =>{
@@ -45,7 +58,7 @@ const Body = () =>{
         </div>
         <div className="res-container">
             {
-                listOfRestaurents.map(
+                filteredrestaurants.map(
                     (restaurant) => <RestaurentCard key={restaurant.info.id} resData={restaurant}/>
                 )           
             }
