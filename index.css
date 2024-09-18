@@ -1,4 +1,8 @@
-.headerSection{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .headerSection{
     display: flex;
     border: 1px solid black;
     justify-content: space-between;
@@ -49,15 +53,11 @@
     box-sizing: border-box;
 }
 .cuisines{
-    /* white-space: nowrap; Prevent text from wrapping */
-    /* overflow: hidden; Hide overflow content */
-    /* text-overflow: ellipsis; Show ellipsis when text overflows */
-    line-height: normal;
-    /* line-break: unset; */
     color: #8b7b7b;
     font-size: 12px;
-} 
-.shimmer-card{
+} */
+
+/* .shimmer-card{
     width: 300px;
     height: 300px;
     margin: 20px;
@@ -76,3 +76,6 @@
     border-radius: 10px;
     border: 1px solid ghostwhite;
 }
+.UserDtls{
+    border: 1px solid black;
+} */
